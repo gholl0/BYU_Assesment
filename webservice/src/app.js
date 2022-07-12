@@ -1,18 +1,18 @@
 const express = require("express")
 const bodyParser = require('body-parser')
-//const cors = require('cors')
+const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
 
 app.use(morgan('combine'))
 app.use(bodyParser.json())
-//app.use(cors())
+app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/movies', (req, res) => {
     res.send({
-        message: "Check out these movies!"
+        message: `Searching for ${req.body.title}...`
     })
 });
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 8081)
