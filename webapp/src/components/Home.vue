@@ -20,24 +20,23 @@
 </template>
 
 <script>
-  import SearchTitle from '@/services/SearchTitle';
-  export default {
-    data () {
-      return {
-          movieName: "",
-          results: ""
-      }
-    },
-    methods: {
-      async search () {
-          const response = await SearchTitle.search({
-              title: this.movieName
-          })
-          this.results = response.data.data
-          console.log(this.results)
-      }
+import SearchTitle from '@/services/SearchTitle'
+export default {
+  data () {
+    return {
+      movieName: '',
+      results: ''
+    }
+  },
+  methods: {
+    async search () {
+      const response = await SearchTitle.search({
+        title: this.movieName
+      })
+      this.results = response.data.data
     }
   }
+}
 </script>
 
 <style scoped>
